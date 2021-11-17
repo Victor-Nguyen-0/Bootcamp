@@ -1,0 +1,43 @@
+img.halloween, img.cat, img.christmas {
+    height: 200px;
+}
+
+.container {
+    background-color:lightcyan;
+    width: 750px;
+    padding: 10px 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 0px auto;
+}
+
+.top {
+    background-color: lightskyblue;
+    padding: 10px;
+    margin: 15px auto;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+}
+
+.middle {
+    background-color: palevioletred;
+    padding: 10px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bottom {
+    background-color: white;
+    padding: 10px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img {
+    margin: 5px;
+}

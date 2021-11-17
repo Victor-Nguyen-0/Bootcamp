@@ -1,0 +1,46 @@
+button {
+    display: block;
+    margin: 20px;
+}
+
+.search {
+    background-color: blanchedalmond;
+    color: turquoise;
+    border-radius: 12px;
+    height: 28px;
+    width: 150px;
+    border: 2px solid turquoise; 
+
+}
+.search:active {
+    border:none;
+}
+
+.plus {
+    background-color: lightseagreen;
+    color: whitesmoke;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: 11px solid lightseagreen;
+    text-align: justify ;
+}
+
+.plus:active {
+    /* border: whitesmoke; */
+    text-align: center;
+}
+
+.create {
+    background-color: blue;
+    color:whitesmoke;
+    height: 40px;
+    width: 200px;
+    box-shadow: 6px 6px black;
+    border: 3px solid black 
+
+}
+
+.create:active {
+    border:whitesmoke;
+}

@@ -1,0 +1,27 @@
+h1 {
+    color: whitesmoke;
+    background-color: black;
+    text-align: left;
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+span {
+    color: turquoise;
+}
+
+h2 {
+    color: whitesmoke;
+    background-color: purple;
+    text-align: center;
+    font-style: italic;
+    font-family: serif;
+}
+
+h3 {
+    color: black;
+    background-color: lightblue;
+    text-align: right;
+    text-decoration: underline;
+    font-weight: lighter;
+}

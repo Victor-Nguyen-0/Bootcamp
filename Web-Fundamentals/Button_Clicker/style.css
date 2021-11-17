@@ -1,0 +1,107 @@
+#topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 900px;
+    background-color: rgb(204,204,204);
+    margin: 0px auto;
+    padding: 10px 20px;
+}
+
+#main {
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+#leftmain {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 50px 0px 50px 5px;
+    /* border: 2px solid black; */
+}
+
+#topninja, #bottomninja {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin: 10px;
+    padding: 15px;
+    border: 3px solid black;
+}
+
+.ninjaheading {
+    margin: 0px 70px 0px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.definition {
+    width: 240px;
+    /* height: 100px; */
+    font-size: 14pt;
+}
+
+h1 {
+    font-size: 32pt;
+    margin: 0px;
+}
+
+h2, #topninja p, #bottomninja p {
+    padding: 0px;
+    margin: 5px;
+}
+
+h2, span {
+    font-style: italic;
+}
+
+#rightmain {
+    border: 3px solid black;
+    margin: 59px 25px 50px 25px;
+    height: 150px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#rightmain h2 {
+    text-align: start;
+    width: 200px;
+    font-style: normal;
+    margin: 10px;
+}
+
+button {
+    margin: 15px;
+}
+
+input {
+    width: 350px;
+}
+
+#login, .likes, #definition {
+    background-color: rgb(43,120,228);
+    color: white;
+    border: 2px solid black;
+    box-shadow: 2px 2px black;
+    width: 75px;
+}
+
+.likes {
+    background-color: rgb(252, 217, 102);
+    color: black;
+}
+
+#definition {
+    width: 200px;
+    height: 50px;
+    font-size: 14pt;
+    background-color: rgb(147, 196, 125);
+}

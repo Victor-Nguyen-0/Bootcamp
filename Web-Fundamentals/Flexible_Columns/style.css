@@ -1,0 +1,28 @@
+.row {
+    background-color: cornflowerblue;
+    width: 1000px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    margin: 25px auto;
+}
+
+.col, .col-2, .col-3 {
+    background-color: orange;
+    flex: 1;
+    height: 100px;
+    margin: 25px;
+    justify-content: space-between;
+    text-align: center;
+    line-height: 100px;
+}
+
+.col-2 {
+    background-color: orange;
+    flex: 2;
+}
+
+.col-3 {
+    background-color: orange;
+    flex: 3;
+}
