@@ -1,3 +1,3 @@
-# Web-Fundamentals2
+# Bootcamp
 
-Reattempt at committing changes onto GitHub with all the projects for front-end learning.
+Reattempt at committing changes onto GitHub with all the projects
