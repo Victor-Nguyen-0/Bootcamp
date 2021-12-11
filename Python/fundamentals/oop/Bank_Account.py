@@ -31,8 +31,8 @@ class BankAccount:
 
     @classmethod
     def print_all_accounts(cls):
-        for account in cls.all_accounts:
-                account.display_account_info()
+        for i in cls.all_accounts:
+                i.display_account_info()
 
 account1 = BankAccount(0.05, 0)
 account2 = BankAccount(0.01, 1000)
