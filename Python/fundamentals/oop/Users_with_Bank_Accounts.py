@@ -8,25 +8,35 @@ class BankAccount:
 
     def deposit(self, amount):
         self.balance += amount
+        print(f"Deposited {amount}. Account balance is now ${self.balance}.")
         return self
 
     def withdraw(self, amount):
-        if (amount < self.balance):
+        if (amount <= self.balance):
             self.balance -= amount
+            print(f"Withdrew {amount}. Account balance is now ${self.balance}.")
         else:
             print("Insufficient funds: Charging a $5 fee.")
             self.balance -= 5 
+            print(f"Account charged. Account balance is now ${self.balance}.")
         return self
 
     def display_account_info(self):
         print(f"Balance: ${self.balance}")
-        return self
+        return f"{self.balance}"
 
     def yield_interest(self):
         if (self.balance > 0):
             self.balance += self.balance * self.int_rate
         else:
             print("Account is not in good standing. Cannot add interest.")
+        return self
+
+    def transfer_money(self, user, amount):
+        self.withdraw(amount)
+        user.deposit(amount)
+        self.display_account_info()
+        user.display_account_info()
         return self
 
     @classmethod
@@ -37,27 +47,17 @@ class BankAccount:
 class User:
     def __init__(self, name):
         self.name = name
-        self.account = BankAccount(0.2, 0)
-
-    def make_deposit(self, amount):
-        self.account.deposit(amount)
-        print(f"{self.name} has deposited ${amount} and now has ${self.account.balance} in their account.")
-        return self
-
-    def make_withdrawal(self, amount):
-        self.account.withdraw(amount)
-        print(f"{self.name} has withdrawn ${amount} and now has ${self.account.balance} in their account.")
-        return self
+        self.account = {
+            "checking" : BankAccount(0.02, 0),
+            "savings" : BankAccount(0.05,0)
+        }
 
     def display_user_balance(self):
-        print("{} Balance: ${}" .format(self.name, self.account.balance))
-
-    def transfer_money(self, user, amount):
-        self.account.withdraw(amount)
-        user.account.deposit(amount)
-        print(f"{User.name} has deposited {amount} into {user.name}'s account and now has ${User.account.balance} remaining.")
-        print(f"{user.name} has received a ${amount} deposit from {User.name} and now has ${user.account.balance} in their account.")
-        return self
+        print(f"User: {self.name}; Checking Balance: ${self.account['checking'].display_account_info()}")
+        print(f"User: {self.name}; Savings Balance: ${self.account['savings'].display_account_info()}")
 
 user1 = User("user1")
-user1.make_deposit(50).make_deposit(100).make_deposit(150).make_withdrawal(100).display_user_balance()
+user1.account["savings"].deposit(100)
+user1.display_user_balance()
+
+user1.account['savings'].transfer_money(user1.account['checking'], 100)
