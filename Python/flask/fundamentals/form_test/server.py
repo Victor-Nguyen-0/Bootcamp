@@ -20,6 +20,8 @@ def create_user():
 def show_user():
     return render_template('show.html', name_on_template=session['username'], email_on_template=session['useremail'])
 
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 
