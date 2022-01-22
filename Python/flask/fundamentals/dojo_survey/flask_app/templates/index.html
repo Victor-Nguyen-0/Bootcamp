@@ -13,6 +13,13 @@
 
 <body>
     <form action="/process" method="post" class="bg-dark text-primary p-5 rounded col-6 mx-auto">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p> {{message}} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
         <h1>Dojo Survey</h1>
         <div class="form-group">
             <label>
@@ -24,6 +31,7 @@
             <label>
                 Dojo Location:
                 <select name="location" class="form-control">
+                    <option value=""> -- Select an Option -- </option>
                     <option>Location 1</option>
                     <option>Location 2</option>
                     <option>Location 3</option>
@@ -35,6 +43,7 @@
             <label>
                 Favorite Language:
                 <select name="language" class="form-control">
+                    <option value=""> -- Select a Language -- </option>
                     <option>HTML</option>
                     <option>CSS</option>
                     <option>JavaScript</option>
@@ -45,7 +54,7 @@
         <div class="form-group">
             <label>
                 Comments:
-                <textarea name="comments" cols="30" rows="10" class="form-control"></textarea>
+                <textarea name="comment" cols="30" rows="10" class="form-control"></textarea>
             </label>
         </div>
         <div class="radio d-inline-block">

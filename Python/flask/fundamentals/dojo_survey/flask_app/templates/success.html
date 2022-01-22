@@ -12,11 +12,11 @@
 <body>
     <div class="bg-dark text-white p-5 rounded col-6 mx-auto">
         <h1>Survey Results</h1>
-        <p>Name: {{session['name']}}</p>
-        <p>Location: {{session['location']}}</p>
-        <p>Favorite Language: {{session['language']}}</p>
-        <p>Comments: {{session['comments']}}</p>
-        <p>Gender Identity: {{session['gender']}}</p>
+        <p>Name: {{survey.name}} </p>
+        <p>Location: {{survey.location}} </p>
+        <p>Favorite Language: {{survey.language}}</p>
+        <p>Comments: {{survey.comment}}</p>
+        <!-- <p>Gender Identity: {{session['gender']}}</p> -->
         {# <!-- <p>
             {% if bool(session['agree1']) == True %}
                 {{session['agree1']}}
