@@ -9,7 +9,7 @@ def index():
 
 @app.route('/friendships')
 def friendships():
-    return render_template('index.html')
+    return render_template('index.html', users = User.get_all())
 
 @app.route('/friendships/user/add', methods = ['POST'])
 def add_user():

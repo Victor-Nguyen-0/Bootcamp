@@ -43,11 +43,19 @@
                 <h2>Create Friendship</h2>
                 <label>
                     User:
-                    <select name=""></select>
+                    <select name="user_id">
+                        {% for one_user in users %}
+                        <option value="{{one_user.user_id}}">{{one_user.first_name}} {{one_user.last_name}}</option>
+                        {% endfor %}
+                    </select>
                 </label>
                 <label>
                     Friend:
-                    <select name=""></select>
+                    <select name="friend_id">
+                        {% for one_user in users %}
+                        <option value="{{one_user.user_id}}">{{one_user.first_name}} {{one_user.last_name}}</option>
+                        {% endfor %}
+                    </select>
                 </label>
                 <input type="submit" value="Create">
         </div>

@@ -18,3 +18,8 @@ class User:
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM users"
+        results = connectToMySQL(cls.db).query_db(query)
+        all_users = []
+        for row in results:
+            all_users.append(cls(row))
+        return all_users

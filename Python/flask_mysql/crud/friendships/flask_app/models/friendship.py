@@ -14,3 +14,7 @@ class Friendship:
     def save(cls, data):
         query = "INSERT INTO friendships (user_id, friend_id) VALUES (%(user_id)s, %(friend_id)s);"
         return connectToMySQL(cls.db).query_db(query, data)
+
+    @classmethod
+    def get_all_friendships(cls):
+        query = "SELECT * FROM friendships"
