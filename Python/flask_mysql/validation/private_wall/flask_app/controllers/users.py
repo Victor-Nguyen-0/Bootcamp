@@ -21,16 +21,41 @@ def register():
     }
     id = User.save(data)
     session['user_id'] = id
-    return redirect('/dashboard')
+    session['user_first_name'] = id
+    return redirect('/wall')
 
 @app.route('/login', methods = ['POST'])
 def login():
     user = User.get_by_email(request.form)
     if not user:
-        flash("Invalid Email. Check your spelling.", "login")
+        flash("Invalid Email/Password. Check your spelling.", "login")
         return redirect('/')
     if not bcrypt.check_password_hash(user.password, request.form['password']):
-        flash("Password does not match.", "login")
+        flash("Invalid Email/Password. Check your spelling.", "login")
         return redirect('/')
     session['user_id'] = user.id
-    return redirect('/dashboard')
+    session['user_first_name'] = user.first_name
+    return redirect('/wall')
+
+@app.route('/wall')
+def wall():
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data = {
+        'id': session['user_id']
+    }
+    user = User.get_by_id(data)
+    users = User.get_all()
+    messages = Message.get_user_messages(data)
+    messages_sent = Message.get_messages_sent(data)
+    return render_template("wall.html", user = user, users = users, messages = messages, messages_sent = messages_sent)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
+
+@app.route('/testip')
+def ip():
+    ip_add = request.remote_addr
+    return '<h1> Your IP address is:' + ip_add
