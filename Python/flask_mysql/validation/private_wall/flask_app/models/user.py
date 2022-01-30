@@ -63,7 +63,23 @@ class User:
         if len(user['password']) < 8:
             flash("Password must be at least 8 characters.", "register")
             is_valid = False
+        if re.search('[A-Z]', user['password']) is None:
+            flash("Password must contain a capital letter.", "register")
+            is_valid = False
+        if re.search('[0-9]', user['password']) is None:
+            flash("Password must contain a digit.", "register")
+            is_valid = False
+        if re.search('[@$!%*#?&]', user['password']) is None:
+            flash("Password must contain a special character.", "register")
+            is_valid = False
         if user['password'] != user['confirm']:
             flash("Passwords don't match", "register")
             is_valid = False
         return is_valid
+
+# PASSWORD_REGEX = re.compile(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{8,18}$')
+
+
+# if not PASSWORD_REGEX.match(user['password']):
+#     flash("Password must be between 8-16 characters with capital/lowercase letters, a number, and a special character.", "register")
+#     is_valid = False
