@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState } from "react";
 
+import Todo from './components/todo'
+
 function App() {
   const [newTodo, setNewTodo] = useState("");
   const [todos, setTodos] = useState([]); /* [] to not let it break when its trying to call from an empty array vs null */
@@ -64,32 +66,15 @@ function App() {
       <hr />
 
       {todos.map((todo, index) => {
-        const todoClasses = ["bold", "italic"];
-
-        if (todo.complete) {
-          todoClasses.push("line-through");
-        }
-
         return (
-          <div key={index}>
-            <input
-              onChange={(event) => {
-                handleToggleComplete(index);
-              }}
-              checked={todo.complete}
-              type="checkbox"
+          <Todo 
+            key = {index}
+            index={index}
+            todo={todo}
+            handleToggleComplete={handleToggleComplete}
+            handleTodoDelete={handleTodoDelete}
             />
-            <span className={todoClasses.join(" ")}>{todo.text}</span>
-            <button
-              onClick={(event) => {
-                handleTodoDelete(index);
-              }}
-              style={{ marginLeft: "10px" }}
-            >
-              Delete
-            </button>
-          </div>
-        );
+        )
       })}
     </div>
   );
