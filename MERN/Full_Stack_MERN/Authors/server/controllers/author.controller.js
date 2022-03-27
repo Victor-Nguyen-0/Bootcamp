@@ -9,7 +9,7 @@ module.exports = {
             })
             .catch((err) => {
                 console.log("findAllAuthors has failed!");
-                res.json({message: "Something went wrong in findAllAuthors!", error: err})
+                res.status(400).json({message: "Something went wrong in findAllAuthors!", error: err})
             })
     },
 
@@ -20,7 +20,13 @@ module.exports = {
                 res.json(newAuthor);
             })
             .catch((err) => {
-                console.log("Something went wrong in createNewAuthor:", err);
+                console.log("Something went wrong in createNewAuthor:", err.code);
+                // let message = "";
+                // if (err.code === 11000) {
+                //     message = "Author must be a unique author! This one has already been added."
+                //     console.log("Duplicate");
+                //     return res.status(400).json({errors:message})
+                // }
                 res.status(400).json(err)
             })
     },
@@ -33,7 +39,7 @@ module.exports = {
             })
             .catch((err) => {
                 console.log("findOneAuthor has failed!");
-                res.json({message: "Something went wrong in findOneAuthor.", error: err})
+                res.status(400).json({message: "Something went wrong in findOneAuthor.", error: err})
             })
     },
 

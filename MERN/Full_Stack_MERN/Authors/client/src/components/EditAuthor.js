@@ -17,14 +17,16 @@ const EditAuthor = (props) => {
     useEffect(() => {
         axios.get(`http://localhost:8000/api/authors/${id}`)
             .then((res) => {
+                console.log("==+++==")
                 console.log(res);
                 console.log(res.data);
                 setEditAuthor(res.data);
 
             })
             .catch((err) => {
+                console.log("====")
                 console.log(err);
-                navigate('/error');
+                navigate("/error");
             })
     }, [id]);
 

@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 const Form = (props) => {
     const {submitHandler, onChangeHandler, author, errors} = props;
     const navigate = useNavigate();
 
+
+
+    console.log(errors);
     return (
         <div>
             <form onSubmit={submitHandler}>

@@ -18,6 +18,7 @@ const OneAuthor = (props) => {
             })
             .catch((err) => {
                 console.log(err);
+                navigate("/error");
             });
     }, [id]);
 

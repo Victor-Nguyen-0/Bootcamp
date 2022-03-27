@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const AuthorSchema = new mongoose.Schema({
     name: {
         type: String,
-        unique: [true, "Author must be a unique author! This one has already been added"],
+        unique: true,
         required: [true, "An author is required!!!"],
         minlength: [3, "The author's name must be at least 3 characters!"],
         maxLength: [30, "The author's name can be no more than 30 characters!"]
