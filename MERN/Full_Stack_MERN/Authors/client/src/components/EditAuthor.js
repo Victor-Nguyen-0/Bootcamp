@@ -11,7 +11,7 @@ const EditAuthor = (props) => {
 
     const [errors, setErrors] = useState({});
     const {id} = useParams();
-    const [loaded, setLoaded] = useState(false);
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -20,10 +20,13 @@ const EditAuthor = (props) => {
                 console.log(res);
                 console.log(res.data);
                 setEditAuthor(res.data);
-                setLoaded(true);
+
             })
-            .catch((err) => console.log(err));
-    }, []);
+            .catch((err) => {
+                console.log(err);
+                navigate('/error');
+            })
+    }, [id]);
 
     const editSubmitHandler = (e) => {
         e.preventDefault();
@@ -62,15 +65,14 @@ const EditAuthor = (props) => {
                 linkText={"Home"}
                 titleText={"Edit this author:"}
             />
-            {
-                loaded &&
+
                 <Form
                 submitHandler={editSubmitHandler}
                 onChangeHandler={editOnChangeHandler}
                 author={editAuthor}
                 errors={errors}
                 />
-            }
+
         </div>
     )
 

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DeleteButton from "./DeleteButton";
 
 const DisplayAllAuthors = (props) => {
     const {authorList, setAuthorList} = props;
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/authors")
@@ -37,7 +38,7 @@ const DisplayAllAuthors = (props) => {
                 <thead style={{backgroundColor:"lightgray", color:"white"}}>
                     <tr>
                         <th style={{padding:"20px 100px"}}>Author</th>
-                        <th style={{padding:"20px 100px"}}>Action Available</th>
+                        <th style={{padding:"20px 100px"}}>Actions Available</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,12 +47,17 @@ const DisplayAllAuthors = (props) => {
 
                         authorList.map((author, index) => (
                             <tr key={author._id}>
-                                <td> {author.name} </td>
                                 <td>
-                                        <Link to={`/author/${author._id}/edit`}>
-                                            <button style={{backgroundImage: "linear-gradient(red, yellow)", padding: "7px 13px", color:"white",
-                                            fontWeight:"bold", margin:"5px", border:"none", borderRadius:"5px"}}>Edit</button>
-                                        </Link>
+                                    <Link to={`/author/${author._id}`}>
+                                        {author.name} 
+                                    </Link>
+                                </td>
+                                <td>
+                                    <button onClick={ () => navigate(`/author/${author._id}/edit`)}
+                                    style={{backgroundImage: "linear-gradient(blue, green)", padding: "7px 13px", color:"white",
+                                    fontWeight:"bold", margin:"5px", border:"none", borderRadius:"5px"}}>
+                                        Edit
+                                    </button>
                                     <DeleteButton 
                                         deleteCallBack={() => removeFromDom(author._id)}
                                     />
