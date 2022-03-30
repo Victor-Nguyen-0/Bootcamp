@@ -19,6 +19,14 @@ class Ninja {
 
     drinkSake() {
         this.health += 10;
-        console.log(this.name + " just drank sake and they're health is now: " + this.health);
+        console.log(this.name + " just drank sake and their health is now: " + this.health);
     }
 }
+
+console.log("Test creation: Victor");
+const ninja1 = new Ninja("Victor", 10, 5, 5);
+ninja1.sayName();
+console.log("----------------");
+ninja1.showStats();
+console.log("----------------");
+ninja1.drinkSake();
