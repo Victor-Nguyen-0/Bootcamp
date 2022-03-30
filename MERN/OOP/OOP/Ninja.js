@@ -23,10 +23,28 @@ class Ninja {
     }
 }
 
-console.log("Test creation: Victor");
-const ninja1 = new Ninja("Victor", 10, 5, 5);
-ninja1.sayName();
+// console.log("Test creation: Victor");
+// const ninja1 = new Ninja("Victor", 10, 5, 5);
+// ninja1.sayName();
+// console.log("----------------");
+// ninja1.showStats();
+// console.log("----------------");
+// ninja1.drinkSake();
+
+class Sensei extends Ninja {
+    constructor(name, health = 100, speed = 10, strength = 10, wisdom = 10) {
+        super(name, health, speed, strength);
+        this.wisdom = wisdom;
+    }
+
+    speakWisdom() {
+        console.log("Sensei says: What one programmer can do in one month, two programmers can do in two months.");
+    }
+}
+
+console.log("Creating Sensei A");
+const sensei1 = new Sensei("A");
 console.log("----------------");
-ninja1.showStats();
+sensei1.showStats();
 console.log("----------------");
-ninja1.drinkSake();
+sensei1.speakWisdom();
